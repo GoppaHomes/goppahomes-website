@@ -1,0 +1,69 @@
+/* styles.css */
+/* Custom CSS for the hero banner */
+.hero {
+    background: url('images/main_banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-text {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('images/main_banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 350px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.search-box {
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Explore Section */
+button.active {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+}
+
+.card img {
+    height: 50px;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+}

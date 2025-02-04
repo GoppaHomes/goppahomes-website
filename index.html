@@ -1,9 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoppaHomes - Find Your Dream Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">GoppaHomes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Buy</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Rent</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sell</a></li>
+<!--                <li class="nav-item"><a class="nav-link" href="#">Find Agents</a></li>-->
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+<!--                <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="btn btn-primary ms-2" href="#">Join</a>-->
+<!--                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
 
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content text-center text-white py-5">
+        <h1 style="color: black">Your Dream Home with GoppaHomes</h1>
+        <p style="color: black">Find Your Next Property!</p>
+        <div class="search-box bg-white p-4 shadow rounded mx-auto mt-4" style="max-width: 600px;">
+            <ul class="nav nav-pills justify-content-center mb-3">
+                <li class="nav-item"><a class="nav-link active" href="#">Buy</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Rent</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Address</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Map</a></li>
+            </ul>
+            <form class="d-flex">
+                <label>
+                    <input type="text" class="form-control me-2" placeholder="Search suburb, postcode, or state">
+                </label>
+                <button class="btn btn-secondary me-2" type="button">Filters</button>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Explore Section -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Explore all things property</h2>
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-outline-secondary me-2 active">Buying</button>
+        <button class="btn btn-outline-secondary me-2">Renting</button>
+        <button class="btn btn-outline-secondary me-2">Selling</button>
+        <button class="btn btn-outline-secondary">Researching</button>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <img src="estimate-icon.png" alt="Estimate" class="mb-3" style="width: 50px;">
+                    <h5 class="card-title">Get estimated property prices</h5>
+                    <p class="card-text">See how much your property's worth whether you own it or want to buy it.</p>
+                    <a href="#" class="text-primary fw-bold">Check property values</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <img src="mortgage-icon.png" alt="Mortgage" class="mb-3" style="width: 50px;">
+                    <h5 class="card-title">Need help with a mortgage?</h5>
+                    <p class="card-text">Compare your finance options to make an informed call.</p>
+                    <a href="#" class="text-primary fw-bold">Explore home loans</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <img src="suburb-icon.png" alt="Suburb" class="mb-3" style="width: 50px;">
+                    <h5 class="card-title">Explore suburb profiles</h5>
+                    <p class="card-text">Check out different suburb profiles and find one that’s right for you.</p>
+                    <a href="#" class="text-primary fw-bold">Research suburbs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-3 text-center">
+    <p class="mb-0">&copy; 2025 GoppaHomes. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
