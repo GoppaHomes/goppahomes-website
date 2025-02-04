@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sale001",
+    "title": "123 Ocean Drive, Bondi, NSW 2026",
+    "address": {
+      "street": "123 Ocean Drive",
+      "city": "Bondi",
+      "state": "NSW",
+      "postcode": "2026"
+    },
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "car_spaces": 2,
+    "land_size": "450 sqm",
+    "floors": 2,
+    "description": "Stunning beachfront property with modern interiors and breathtaking views.",
+    "price": 2500000,
+    "images_folder": "images/sale/sale001"
+  },
+  {
+    "id": "sale002",
+    "title": "456 Elm Street, Melbourne, VIC 3000",
+    "address": {
+      "street": "456 Elm Street",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000"
+    },
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "car_spaces": 1,
+    "land_size": "320 sqm",
+    "floors": 1,
+    "description": "Charming family home in the heart of Melbourne's vibrant city center.",
+    "price": 1200000,
+    "images_folder": "images/sale/sale002"
+  }
+]

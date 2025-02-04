@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rent001",
+    "title": "789 Pine Lane, Geelong, VIC 3220",
+    "address": {
+      "street": "789 Pine Lane",
+      "city": "Geelong",
+      "state": "VIC",
+      "postcode": "3220"
+    },
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "car_spaces": 1,
+    "land_size": "250 sqm",
+    "floors": 1,
+    "description": "Cozy apartment located in the heart of Geelong, close to cafes and shopping centers.",
+    "price": 450,
+    "images_folder": "images/rent/rent001"
+  },
+  {
+    "id": "rent002",
+    "title": "321 Maple Lane, Perth, WA 6000",
+    "address": {
+      "street": "321 Maple Lane",
+      "city": "Perth",
+      "state": "WA",
+      "postcode": "6000"
+    },
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "car_spaces": 2,
+    "land_size": "350 sqm",
+    "floors": 1,
+    "description": "Spacious rental property with a beautiful backyard and modern kitchen.",
+    "price": 600,
+    "images_folder": "images/rent/rent002"
+  }
+]
