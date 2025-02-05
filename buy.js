@@ -1,13 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const propertyId = urlParams.get('id');
+
     fetch('properties_for_sale.json')
         .then(response => response.json())
         .then(data => {
-            batchDisplayProperties(data);
+            batchDisplayProperties(data, propertyId);  // Pass propertyId to highlight if needed
+
+            // If there's a propertyId in the URL, display its details
+            if (propertyId) {
+                const selectedProperty = data.find(property => property.id === propertyId);
+                if (selectedProperty) {
+                    displayPropertyDetails(selectedProperty);
+                } else {
+                    document.getElementById('property-details').innerHTML = '<p class="text-center">Property not found.</p>';
+                }
+            } else {
+                // Show a default message if no property is selected
+                document.getElementById('property-details').innerHTML = '<p class="text-center">Select a property to view details.</p>';
+            }
         });
 });
 
-// Batch Display Properties to Minimize Repaints
-function batchDisplayProperties(properties) {
+// Batch Display Properties
+function batchDisplayProperties(properties, selectedId = null) {
     const propertyList = document.getElementById('property-list');
     const fragment = document.createDocumentFragment();
 
@@ -15,21 +31,26 @@ function batchDisplayProperties(properties) {
         const propertyItem = document.createElement('div');
         propertyItem.classList.add('p-3', 'border-bottom', 'd-flex', 'align-items-start', 'property-item');
 
+        // Add the 'selected' class if this property matches the selected ID
+        if (property.id === selectedId) {
+            propertyItem.classList.add('selected');
+        }
+
         propertyItem.innerHTML = `
-            <img src="${property.images_folder}/001.jpg" alt="${property.title}" 
-                 class="property-thumbnail me-3" loading="lazy">
-            <div>
-                <h6 class="mb-2">${property.title}</h6>
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-bed me-2 text-black"></i><span>${property.bedrooms}</span>
-                    <i class="fas fa-bath ms-4 me-2 text-black"></i><span>${property.bathrooms}</span>
-                    <i class="fas fa-car ms-4 me-2 text-black"></i><span>${property.car_spaces}</span>
+            <a href="?id=${property.id}" class="d-flex text-decoration-none text-dark w-100">
+                <img src="${property.images_folder}/001.jpg" alt="${property.title}" 
+                     class="property-thumbnail me-3" loading="lazy">
+                <div>
+                    <h6 class="mb-2">${property.title}</h6>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-bed me-2 text-black"></i><span>${property.bedrooms}</span>
+                        <i class="fas fa-bath ms-4 me-2 text-black"></i><span>${property.bathrooms}</span>
+                        <i class="fas fa-car ms-4 me-2 text-black"></i><span>${property.car_spaces}</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         `;
 
-        propertyItem.style.cursor = 'pointer';
-        propertyItem.addEventListener('click', () => displayPropertyDetails(property));
         fragment.appendChild(propertyItem);
     });
 
@@ -51,18 +72,35 @@ function displayPropertyDetails(property) {
 
         <div class="d-flex overflow-auto" id="thumbnail-container"></div>
 
-        <h3 class="mt-4">${property.title}</h3>
-        <p>${property.address.street}, ${property.address.city}, ${property.address.state}, ${property.address.postcode}</p>
-        <p><strong>Price:</strong> $${property.price.toLocaleString()}</p>
-        <p><strong>Description:</strong> ${property.description}</p>
-        <p><strong>Bedrooms:</strong> ${property.bedrooms}</p>
-        <p><strong>Bathrooms:</strong> ${property.bathrooms}</p>
-        <p><strong>Car Spaces:</strong> ${property.car_spaces}</p>
-        <p><strong>Land Size:</strong> ${property.land_size}</p>
-        <p><strong>Floors:</strong> ${property.floors}</p>
+        <h3 style="margin-top: 20px;">${property.address.street}, ${property.address.city}, ${property.address.state}, ${property.address.postcode}</h3>
+        <div class="d-flex align-items-center">
+            <i class="fas fa-bed me-2 text-black"></i><span>${property.bedrooms}</span>
+            <i class="fas fa-bath ms-3 me-2 text-black"></i><span>${property.bathrooms}</span>
+            <i class="fas fa-car ms-3 me-2 text-black"></i><span>${property.car_spaces}</span>
+            <span class="mx-2">•</span>
+            <span><strong>${property.land_size} m<sup>2</sup></strong></span>
+          </div>
+
+        <h5 style="margin-top: 20px;"><strong>$${property.price.toLocaleString()}</strong></h5>
+        <p style="margin-top: 20px;"><strong>Description:</strong> ${property.description}</p>
+
+        <!-- Share Button -->
+        <button class="btn btn-outline-primary mt-3" id="share-button">
+            <i class="fas fa-share"></i> Share Listing
+        </button>
     `;
 
     loadPropertyImages(property.images_folder, currentImageIndex);
+
+    // Share Button Functionality
+    document.getElementById('share-button').addEventListener('click', () => {
+        const shareUrl = `${window.location.origin}${window.location.pathname}?id=${property.id}`;
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert('Listing URL copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy URL:', err);
+        });
+    });
 
     // Navigation Arrows
     document.getElementById('prev-image').addEventListener('click', () => navigateImages(-1, property.images_folder));
