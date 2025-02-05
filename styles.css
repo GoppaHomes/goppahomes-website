@@ -62,6 +62,51 @@ button.active {
     height: 50px;
 }
 
+.property-item:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+.property-item i {
+    font-size: 1.2rem;
+}
+
+.property-item span {
+    font-size: 1rem;
+}
+
+.property-item:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.property-item img {
+    border: 1px solid #ddd;
+}
+
+.property-item h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.property-item i {
+    font-size: 1rem;
+    color: black;
+}
+
+.property-item span {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.property-item:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+
 /* Footer */
 footer {
     background-color: #343a40;
