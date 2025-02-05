@@ -43,7 +43,7 @@ function fetchImages(folderPath) {
         img.src = `${folderPath}/${String(i).padStart(3, '0')}.jpg`;
         img.alt = `Property Image ${i}`;
         img.className = 'col-md-4 mb-3';
-        img.onerror = function() { this.style.display = 'none'; }; // Hide if image doesn't exist
+        img.onerror = function() { this.style.display = 'none'; }; // Hide if image doesn't.js exist
         gallery.appendChild(img);
     }
 }

@@ -1,4 +1,46 @@
 /* styles.css */
+/* Default layout for larger screens (1400px and above) */
+@media (min-width: 1400px) {
+    .property-details {
+        display: none !important; /* Ensure toggle doesn't.js appear on large screens */
+    }
+}
+
+/* Responsive toggle for screens smaller than 1400px */
+@media (max-width: 1399px) {
+    .property-details {
+        display: none; /* Hidden by default */
+    }
+
+    .property-item.active .property-details {
+        display: block; /* Show details when the item is active */
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .property-item {
+        cursor: pointer;
+    }
+
+    #property-details {
+        display: none;
+    }
+
+    .property-list-container {
+        flex-direction: column;
+    }
+
+    #property-list {
+        width: 100%;  /* Expand list to full width */
+        border-right: none;
+    }
+}
+
+/* Default: Show right section for larger screens */
+
+
 /* Custom CSS for the hero banner */
 .hero {
     background: url('images/main_banner.jpg') no-repeat center center;
@@ -6,6 +48,7 @@
     height: 300px;
     position: relative;
 }
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -14,6 +57,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .hero-text {
     position: relative;
     color: #fff;
@@ -21,6 +65,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
 /* General Styling */
 body {
     font-family: 'Arial', sans-serif;
@@ -79,10 +124,6 @@ button.active {
     background-color: #f8f9fa;
     transition: background-color 0.3s ease;
     border-radius: 5px;
-}
-
-.property-item img {
-    border: 1px solid #ddd;
 }
 
 .property-item h6 {
@@ -149,14 +190,14 @@ button.active {
 
 /* Highlight the selected property with a bold border and background color */
 .property-item.selected {
-    border-left: 4px solid #ffca5a;  /* Bright blue border */
-    background-color: #ffe3b4;       /* Light blue background for better contrast */
+    border-left: 4px solid #ffca5a; /* Bright blue border */
+    background-color: #ffe3b4; /* Light blue background for better contrast */
     border-radius: 5px;
 }
 
 /* Ensure hover effect is distinct from the selected highlight */
 .property-item:hover {
-    background-color: #ffebd4;       /* Slightly different from selected to distinguish */
+    background-color: #ffebd4; /* Slightly different from selected to distinguish */
 }
 
 .thumbnail-image {
@@ -186,8 +227,13 @@ button.active {
     border-radius: 50%;
 }
 
-.left-arrow { left: 10px; }
-.right-arrow { right: 10px; }
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
 
 /* Footer */
 footer {
